@@ -1,34 +1,39 @@
 <header class="top-header">
   <div class="row">
-    <div class="small-6 medium-8 columns">
+    <div class="small-12 medium-8 columns">
       <%= link_to root_url, title: global_site_settings['Name'], class: 'top-header-logo' do %>
         <%= image_tag 'layout/header/logo.jpg', alt: global_site_settings['Name'] %>
       <% end %>
+      <%= link_to (image_tag 'components/icons/hamburger.svg', alt: 'Menu'),
+                  '#',
+                  title: 'Toggle Menu',
+                  class: 'hamburger-icon toggle-class show-for-small',
+                  data: { container: '.primary-navigation', class: 'hide-for-small' }
+      %>
     </div>
-
-    <div class="small-6 medium-4 columns">
-      <%= link_to (image_tag 'components/icons/hamburger.svg', alt: 'Menu'), '#', title: 'Toggle Menu', class: 'hamburger-icon toggle-class show-for-small', data: { container: '.primary-navigation', class: 'hide-for-small' } %>
-      <div class="header-telephone">
+    <div class="small-12 medium-4 columns">
+      <div class="contact-information-content">
+        <div class="header-telephone">
           Tel:
 
         <span class="header-contact-value">
-          <strong>
-            <%= global_site_settings['Phone'] %>
-          </strong>
-
-          <span class="header-telephone-option">
-            Option 3
+            <strong>
+              <%= global_site_settings['Phone'] %>
+            </strong>
+            <span class="header-telephone-option">
+              Option 3
           </span>
-        </span>
-      </div>
-      <div class="header-email">
-        Email:
+          </span>
+        </div>
+        <div class="header-email">
+          Email:
 
         <span class="header-contact-value">
-          <strong>
-            <%= mail_to global_site_settings['Email'] %>
-          </strong>
-        </span>
+            <strong>
+              <%= mail_to global_site_settings['Email'] %>
+            </strong>
+          </span>
+        </div>
       </div>
     </div>
   </div>
